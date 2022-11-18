@@ -1,0 +1,90 @@
+body {
+  margin-bottom: 150px;
+  position: relative;
+  z-index: 2;
+}
+/*--- customize dropdown appearance ---*/
+.dropdown-menu {
+  @include box-sad();
+  border: 1px solid #ebebeb;
+  @extend .fs-14;
+}
+
+input,
+textarea,
+.form-control {
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+::placeholder {
+  color: $text-secondary!important;
+}
+
+::selection {
+  background-color: rgba($primary, .2);
+}
+
+/*------- more info question mark btn style ---------*/
+.more-info-btn {
+  border: 3px solid #636363;
+  padding: 0 6px;
+  border-radius: .2rem;
+}
+
+/*------- more info question mark btn style ---------*/
+.not-found-icon {
+  svg {
+    width: 80px;
+    cursor: default;
+    * {
+      fill: #D3D8E0;
+      stroke: #D3D8E0;
+    }
+  }
+}
+
+/*------- scrollbar style : used inside a element - not stand alone---------*/
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 8px;
+    border-radius: 50px;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: none;
+    border-radius: 50px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: white;
+    outline: none;
+    border-radius: 50px;
+  }
+
+  &:hover {
+    &::-webkit-scrollbar-thumb {
+      background-color: $border-color;
+    }
+  }
+}
+
+//.hidden-desktop {
+//  display: none;
+//}
+//
+//.hidden-mobile {
+//  display: block;
+//  @media screen and (max-width: 575px) {
+//    display: none;
+//  }
+//}
+
+// responsive styles
+@include media-breakpoint-up(xl) {
+  body {
+    margin-bottom: 50px;
+  }
+}

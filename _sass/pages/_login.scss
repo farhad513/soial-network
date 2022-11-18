@@ -1,0 +1,26 @@
+.page-login {
+  .main-content {
+    .row {
+      background-color: #f8f8f8;
+    }
+
+    .login-form {
+      .form-control {
+        @extend .fs-14;
+        width: 100%;
+      }
+      .btn-link {
+        text-decoration: underline !important;
+      }
+    }
+    .divider {
+      width: 100%;
+      height: 1px;
+      background-color: $border-color;
+      margin: 20px 0;
+    }
+    .signup-page {
+      text-decoration: underline !important;
+    }
+  }
+}

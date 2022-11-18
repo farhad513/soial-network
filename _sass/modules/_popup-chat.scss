@@ -1,0 +1,245 @@
+#popup-chat {
+  position: fixed;
+  bottom: 0;
+  right: 290px;
+  width: auto;
+  z-index: 99;
+  height: auto;
+
+  .popup-chat__window {
+    position: absolute;
+    right: 0;
+    width: 300px;
+    height: 380px;
+    overflow: hidden;
+    bottom: 0;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .1);
+    transition: bottom .3s ease-out;
+
+    &:nth-child(2) {
+      right: 310px;
+    }
+
+    &.show-me {
+      bottom: 0 !important;
+    }
+
+    &__actions {
+      height: 32px;
+
+      svg {
+        width: 20px;
+        cursor: pointer;
+
+        * {
+          fill: $icon-color;
+          stroke: $icon-color;
+        }
+        &:hover {
+          * {
+            fill: $primary;
+            stroke: $primary;
+          }
+        }
+      }
+    }
+
+    .action-item {
+      margin-right: 15px;
+    }
+    .custom-video-upload svg {
+      width: 25px;
+    }
+    .vocie-call {
+      margin-top: -4px;
+      svg {
+        width: 16px;
+      }
+    }
+    .send-emoji {
+      margin-top: -7px;
+    }
+
+    &.user-is-active {
+      .su__pp {
+        width: 25px;
+        position: relative;
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 2px;
+          right: -3px;
+          height: 6px;
+          width: 6px;
+          border-radius: 50%;
+          background-color: #469A1F;
+        }
+      }
+    }
+
+  }
+
+  .popup-chat__window--btn {
+    position: absolute;
+    right: 620px;
+    height: 45px;
+    overflow: visible;
+    bottom: 0;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .1);
+    transition: bottom .3s ease-out;
+    width: 55px;
+    border-radius: 10px 10px 0 0;
+
+    .dropdown-item {
+      @extend .fs-14;
+    }
+
+    .btn-dp-tr-chat {
+      svg{
+        width: 27px;
+        padding-top: 5px;
+        * {
+          fill: $icon-color;
+          stroke: $icon-color;
+        }
+        &:hover {
+          * {
+            fill: $primary;
+            stroke: $primary;
+          }
+        }
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: none;
+        border: none;
+      }
+    }
+  }
+
+  .popup-chat__window__messages {
+    overflow-y: auto;
+  }
+
+  .card {
+    border-radius: 10px 10px 0 0;
+
+  }
+  .card-head {
+    cursor: pointer;
+    height: 42px;
+    border-bottom: 1px solid #ebebeb;
+  }
+  .card-footer{
+    padding: 10px 15px 2px 15px;
+    &:before {
+      content: none;
+    }
+  }
+  .su__pp {
+    width: 25px;
+    position: relative;
+  }
+  .close-chat-window {
+    width: 22px;
+    fill: $text-secondary;
+    svg:hover {
+      fill: $primary;
+    }
+  }
+
+  .popup-chat__window__messages {
+    .user_info {
+      width: 22px;
+      min-width: 22px;
+      margin-right: 10px;
+    }
+    .message__body {
+      width: 90%;
+
+      .text {
+        @extend .fs-14;
+        @extend .rounded-sm;
+        padding: 15px;
+        margin-bottom: 10px;
+      }
+
+      .message__time {
+        @extend .fs-12;
+      }
+    }
+
+    .received-message {
+      .user_info {}
+      .message__body {
+        .text {
+          background: #f8f9fa;
+        }
+      }
+      .message__time {
+        text-align: right;
+      }
+    }
+
+    .sent-message {
+      .user_info {
+        order: 2;
+        margin-right: 0;
+        margin-left: 10px;
+      }
+      .message__body {
+        order: 1;
+        margin-left: auto;
+        .text {
+          background: #E3EFFF;
+        }
+      }
+    }
+
+    // sticker message styles
+    .sent-message,
+    .received-message {
+      display: flex;
+
+      &--has-sticker {
+        align-items: center;
+        .message__body {
+          background: white;
+          padding: 0;
+          width: 150px;
+        }
+        .message__time {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+#send-message-input {
+  border: 0;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 1024px) {
+  #popup-chat {
+    .popup-chat__window {
+      &[data-chat-window="2"] {
+        display: none;
+      }
+    }
+    .popup-chat__window--btn {
+      right: 320px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #popup-chat {
+    display: none;
+  }
+}
